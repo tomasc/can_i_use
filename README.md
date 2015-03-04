@@ -26,7 +26,7 @@ $ gem install caniuse
 
 ## Usage
 
-TODO
+TODO: desc
 
 ## Contributing
 
