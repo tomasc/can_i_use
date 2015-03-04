@@ -1,0 +1,3 @@
+[submodule "vendor/caniuse"]
+	path = vendor/caniuse
+	url = https://github.com/Fyrd/caniuse.git
