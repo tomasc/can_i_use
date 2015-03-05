@@ -42,7 +42,7 @@ user_agent_string = 'Mozilla/4.0 (compatible; MSIE 6.1; Windows XP)'
 CanIUse.feature('canvas').in?(user_agent_string, as: :string) # => 'n'
 ```
 
-To find out minimal version that fully supports certain feature:
+To find out minimal version of a browser (naming matches caniuse naming) that fully supports certain feature:
 
 ```ruby
 CanIUse.feature('canvas').from_version_of('ie') # => 10
