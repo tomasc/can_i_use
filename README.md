@@ -45,7 +45,7 @@ CanIUse.feature('canvas').in?(user_agent_string, as: :string) # => 'n'
 To find out minimal version that fully supports certain feature:
 
 ```ruby
-CanIUse.feature('canvas').in('ie').min_version # => 10
+CanIUse.feature('canvas').from_version_of('ie') # => 10
 ```
 
 ## Contributing
