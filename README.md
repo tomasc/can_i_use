@@ -30,6 +30,7 @@ For simple yes/no answer (considers partial support as a no):
 
 ```ruby
 user_agent_string = 'Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5355d Safari/8536.25'
+
 CanIUse.feature('border-radius').in?(user_agent_string) # => true
 ```
 
@@ -37,6 +38,7 @@ For detailed answer (see [all options here](https://github.com/Fyrd/caniuse/blob
 
 ```ruby
 user_agent_string = 'Mozilla/4.0 (compatible; MSIE 6.1; Windows XP)'
+
 CanIUse.feature('canvas').in?(user_agent_string, as: :string) # => 'n'
 ```
 
