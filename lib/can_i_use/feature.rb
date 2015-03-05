@@ -1,8 +1,9 @@
 require 'json'
 
 require_relative 'browser'
+require_relative 'user_agent'
 
-module CanIUse
+class CanIUse
   class Feature
 
     FEATURE_FILES_DIR = 'vendor/caniuse/features-json'
@@ -15,9 +16,17 @@ module CanIUse
 
     def browsers
       return [] unless feature_data
-      @browsers ||= feature_data.fetch('stats', {}).map do |browser_name, versions_hash|
-        CanIUse::Browser.new(browser_name, versions_hash)
+      @browsers ||= {}
+      feature_data.fetch('stats', {}).each do |browser_name, versions_hash|
+        @browsers[browser_name] = Browser.new(browser_name, versions_hash)
       end
+      @browsers
+    end
+
+    def supported_by? user_agent_string
+      user_agent = UserAgent.new(user_agent_string)
+      # feature_data.fetch('stats', {})[user_agent.browser]
+      # browsers[user_agent.browser]
     end
 
     private # =============================================================

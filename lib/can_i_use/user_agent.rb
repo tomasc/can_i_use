@@ -1,6 +1,6 @@
 require 'user_agent_parser'
 
-module CanIUse
+class CanIUse
   class UserAgent
 
     def initialize user_agent_string
@@ -8,7 +8,7 @@ module CanIUse
       @user_agent = UserAgentParser.parse(user_agent_string)
     end
 
-    def browser_key
+    def browser
       case 
       when @user_agent.family =~ /chrome\s+mobile/i then 'and_chr'
       when @user_agent.family =~ /firefox\s+mobile/i then 'and_ff'

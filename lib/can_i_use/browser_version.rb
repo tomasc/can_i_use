@@ -1,4 +1,4 @@
-module CanIUse
+class CanIUse
   class BrowserVersion
 
     attr_accessor :version_string
