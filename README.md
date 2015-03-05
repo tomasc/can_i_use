@@ -26,8 +26,22 @@ $ gem install can_i_use
 
 ## Usage
 
-```ruby
+For simple yes/no answer (considers partial support as a no):
 
+```ruby
+CanIUse.feature('border-radius').in?('Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5355d Safari/8536.25') # => true
+```
+
+For detailed answer (see [all options here](https://github.com/Fyrd/caniuse/blob/master/CONTRIBUTING.md)):
+
+```ruby
+CanIUse.feature('canvas').in('Mozilla/4.0 (compatible; MSIE 6.1; Windows XP)') # => 'n'
+```
+
+To find out minimal version that fully supports certain feature:
+
+```ruby
+CanIUse.feature('canvas').in('ie').min_version # => 10
 ```
 
 ## Contributing
