@@ -2,7 +2,7 @@ require 'json'
 
 require_relative 'browser'
 
-module Caniuse
+module CanIUse
   class Feature
 
     FEATURE_FILES_DIR = 'vendor/caniuse/features-json'
@@ -16,7 +16,7 @@ module Caniuse
     def browsers
       return [] unless feature_data
       @browsers ||= feature_data.fetch('stats', {}).map do |browser_name, versions_hash|
-        Caniuse::Browser.new(browser_name, versions_hash)
+        CanIUse::Browser.new(browser_name, versions_hash)
       end
     end
 

@@ -3,7 +3,7 @@ require 'minitest'
 require 'minitest/autorun'
 require 'minitest/spec'
 
-require 'caniuse'
+require 'can_i_use'
   
 if ENV["CI"]
   require "coveralls"

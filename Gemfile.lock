@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    caniuse (0.0.1)
+    can_i_use (0.0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -76,7 +76,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.6)
-  caniuse!
+  can_i_use!
   coveralls
   guard
   guard-minitest

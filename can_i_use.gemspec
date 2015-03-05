@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'caniuse/version'
+require 'can_i_use/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "caniuse"
-  spec.version       = Caniuse::VERSION
+  spec.name          = "can_i_use"
+  spec.version       = CanIUse::VERSION
   spec.authors       = ["Tomas Celizna"]
   spec.email         = ["tomas.celizna@gmail.com"]
   spec.summary       = %q{Very light Ruby wrapper on caniuse data.}
   spec.description   = %q{Very light Ruby wrapper on caniuse data.}
-  spec.homepage      = "https://github.com/tomasc/caniuse"
+  spec.homepage      = "https://github.com/tomasc/can_i_use"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

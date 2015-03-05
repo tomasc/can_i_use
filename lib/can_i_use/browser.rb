@@ -1,6 +1,6 @@
 require_relative 'version'
 
-module Caniuse
+module CanIUse
   class Browser
 
     attr_accessor :name
@@ -12,7 +12,7 @@ module Caniuse
     end
 
     def versions
-      @versions_hash.map{ |version, result| Caniuse::BrowserVersion.new(version, result) }
+      @versions_hash.map{ |version, result| CanIUse::BrowserVersion.new(version, result) }
     end
     
   end
