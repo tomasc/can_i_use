@@ -22,5 +22,9 @@ class CanIUse
       end
     end
 
+    def version
+      @user_agent.version
+    end
+
   end
 end

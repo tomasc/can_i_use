@@ -23,10 +23,10 @@ class CanIUse
       @browsers
     end
 
-    def supported_by? user_agent_string
+    def in? user_agent_string
       user_agent = UserAgent.new(user_agent_string)
-      # feature_data.fetch('stats', {})[user_agent.browser]
-      # browsers[user_agent.browser]
+      browser = browsers[user_agent.browser]
+      browser.version(user_agent.version.to_s)
     end
 
     private # =============================================================

@@ -12,11 +12,15 @@ class CanIUse
     end
 
     def versions
-      @versions_hash.map{ |version, result| CanIUse::BrowserVersion.new(version, result) }
+      @versions ||= {}
+      @versions_hash.each do |version, result| 
+        @versions[version] = CanIUse::BrowserVersion.new(version, result)
+      end
+      @versions
     end
 
-    def supported_in_version? version_number
-      
+    def version version_number
+      versions[version_number.to_s].to_boolean
     end
     
   end
