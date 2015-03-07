@@ -16,39 +16,17 @@ class CanIUse
     # ---------------------------------------------------------------------
       
     def versions
-      @versions_hash.inject([]) { |res, h| res << BrowserVersion.new(*h) unless h[1] =~ /TP/i }.sort
+      @versions_hash.select{ |k, v| k =~ /[\d\.]/ }.inject([]) do |res, h| 
+        res << BrowserVersion.new(*h)
+      end
     end
 
     def version version_number
       versions.detect{ |v| v.to_s == version_number }
     end
 
-    # ---------------------------------------------------------------------
-      
-    def supported_in_versions
-      versions.select(&:supported?)
-    end
-
-    def fully_supported_in_versions
-      versions.select(&:fully_supported?)
-    end
-
-    def almost_supported_in_versions
-      versions.select(&:almost_supported?)
-    end
-    
-    # ---------------------------------------------------------------------
-    
-    def supported_from_version
-      supported_in_versions.sort.first
-    end
-
-    def almost_supported_from_version
-      almost_supported_in_versions.sort.first
-    end
-
-    def fully_supported_from_version
-      fully_supported_in_versions.sort.first
+    def supported_from_version support_type=:yes
+      versions.detect{ |v| v.support_type == support_type }
     end
 
     # ---------------------------------------------------------------------

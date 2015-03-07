@@ -3,35 +3,14 @@ require 'test_helper'
 class CanIUse
   describe BrowserVersion do
 
-    describe 'version' do
-      it { CanIUse::BrowserVersion.new('5', 'y').to_s.must_equal '5' }
-      it { CanIUse::BrowserVersion.new('5', 'y').to_f.must_equal 5 }
-      it { CanIUse::BrowserVersion.new('5.1', 'y').to_s.must_equal '5.1' }
-      it { CanIUse::BrowserVersion.new('5.1', 'y').to_f.must_equal 5.1 }
-      it { CanIUse::BrowserVersion.new('9.5-9.6', 'y').to_s.must_equal '9.5-9.6' }
-      it { CanIUse::BrowserVersion.new('9.5-9.6', 'y').to_f.must_equal 9.5 }
-      it { CanIUse::BrowserVersion.new('4.4.3', 'y').to_s.must_equal '4.4.3' }
-      it { CanIUse::BrowserVersion.new('4.4.3', 'y').to_f.must_equal 4.4 }
-      it { CanIUse::BrowserVersion.new('4.4.3-4.4.4', 'y').to_s.must_equal '4.4.3-4.4.4' }
-      it { CanIUse::BrowserVersion.new('4.4.3-4.4.4', 'y').to_f.must_equal 4.4 }
-    end
-
-    describe 'supported?' do
-      it { CanIUse::BrowserVersion.new('5', 'a').supported?.must_equal true }
-      it { CanIUse::BrowserVersion.new('5', 'n').supported?.must_equal false }
-      it { CanIUse::BrowserVersion.new('5', 'y').supported?.must_equal true }
-    end
-
-    describe 'almost_supported?' do
-      it { CanIUse::BrowserVersion.new('5', 'a').almost_supported?.must_equal true }
-      it { CanIUse::BrowserVersion.new('5', 'n').almost_supported?.must_equal false }
-      it { CanIUse::BrowserVersion.new('5', 'y').almost_supported?.must_equal false }
-    end
-
-    describe 'fully_supported?' do
-      it { CanIUse::BrowserVersion.new('5', 'a').fully_supported?.must_equal false }
-      it { CanIUse::BrowserVersion.new('5', 'n').fully_supported?.must_equal false }
-      it { CanIUse::BrowserVersion.new('5', 'y').fully_supported?.must_equal true }
+    describe 'support' do
+      it { CanIUse::BrowserVersion.new('0', 'y').support_type.must_equal :yes }
+      it { CanIUse::BrowserVersion.new('0', 'a').support_type.must_equal :almost }
+      it { CanIUse::BrowserVersion.new('0', 'n').support_type.must_equal :no }
+      it { CanIUse::BrowserVersion.new('0', 'p').support_type.must_equal :polyfill }
+      it { CanIUse::BrowserVersion.new('0', 'u').support_type.must_equal :unknown }
+      it { CanIUse::BrowserVersion.new('0', 'x').support_type.must_equal :prefix }
+      it { CanIUse::BrowserVersion.new('0', 'd').support_type.must_equal :disabled }
     end
 
     describe 'sorting' do

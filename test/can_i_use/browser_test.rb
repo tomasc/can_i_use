@@ -3,7 +3,7 @@ require 'test_helper'
 class CanIUse
   describe Browser do
 
-    subject { CanIUse::Browser.new("chrome", {"5.5"=>"n","6"=>"n","7"=>"n","8"=>"a","9"=>"a","10"=>"y","11"=>"y"}) }
+    subject { CanIUse::Browser.new("ie", { "5.5"=>"n", "6"=>"p", "7"=>"p", "8"=>"p", "9"=>"y", "10"=>"y", "11"=>"y", "TP"=>"y" }) }
 
     describe '#versions' do
       it 'returns an array of versions' do
@@ -18,43 +18,15 @@ class CanIUse
       end
     end
 
-    # ---------------------------------------------------------------------
-      
-    describe '#supported_in_versions' do
-      it 'returns all supported versions (both fully and partially)' do
-        subject.supported_in_versions.map(&:to_s).must_equal %w(8 9 10 11)
-      end
-    end
-
-    describe '#almost_supported_in_versions' do
-      it 'returns all almost supported versions' do
-        subject.almost_supported_in_versions.map(&:to_s).must_equal %w(8 9)
-      end
-    end
-
-    describe '#fully_supported_in_versions' do
-      it 'returns all fully supported versions' do
-        subject.fully_supported_in_versions.map(&:to_s).must_equal %w(10 11)
-      end
-    end
-
-    # ---------------------------------------------------------------------
-    
     describe '#supported_from_version' do
-      it 'returns first version with either partial or full support' do
-        subject.supported_from_version.to_s.must_equal '8'
+      it 'returns supported version' do
+        subject.supported_from_version.must_be_kind_of CanIUse::BrowserVersion
+        subject.supported_from_version.to_s.must_equal '9'
       end
-    end
 
-    describe '#almost_supported_from_version' do
-      it 'returns first version with almost support' do
-        subject.almost_supported_from_version.to_s.must_equal '8'
-      end
-    end
-
-    describe '#fully_supported_from_version' do
-      it 'returns first version with full support' do
-        subject.fully_supported_from_version.to_s.must_equal '10'
+      it 'returns supported version with support type' do
+        subject.supported_from_version.must_be_kind_of CanIUse::BrowserVersion
+        subject.supported_from_version(:polyfill).to_s.must_equal '6'
       end
     end
 

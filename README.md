@@ -26,22 +26,11 @@ $ gem install can_i_use
 
 ## Usage
 
-```ruby
-CanIUse.feature('border-radius').supported_in?(user_agent_string)
-CanIUse.feature('border-radius').almost_supported_in?(user_agent_string)
-CanIUse.feature('border-radius').fully_supported_in?(user_agent_string)
-```
-
-To find out minimal version of a browser (naming matches caniuse naming: `ie`, `firefox`, `chrome`, `safari`, `opera`, `ios_saf`, `op_min`, `android`, `bb`, `op_mob`, `and_chr`, `and_ff`, `ie_mob`, `ie_mob`, `and_uc`) that fully supports certain feature:
+Test user agent for support of a feature. Optionally specify minimum type of support (`:almost`, `:polyfill`, `:prefix` or `:disabled`).
 
 ```ruby
-CanIUse.feature('canvas').in_browser('ie').supported_in_versions # => […]
-CanIUse.feature('canvas').in_browser('ie').almost_supported_in_versions # => […]
-CanIUse.feature('canvas').in_browser('ie').fully_supported_in_versions # => […]
-
-CanIuse.feature('canvas').in_browser('ie').supported_from_version # => CanIUse::BrowserVersion
-CanIuse.feature('canvas').in_browser('ie').almost_supported_from_version # => CanIUse::BrowserVersion
-CanIuse.feature('canvas').in_browser('ie').fully_from_version # => CanIUse::BrowserVersion
+CanIUse::UserAgent.new(user_agent_string).supports?('canvas') # => true
+CanIUse::UserAgent.new(user_agent_string).supports?('canvas', :polyfill) # => true
 ```
 
 ## Contributing
