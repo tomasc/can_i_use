@@ -26,26 +26,22 @@ $ gem install can_i_use
 
 ## Usage
 
-For simple yes/no answer (considers partial support as a no):
-
 ```ruby
-user_agent_string = 'Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5355d Safari/8536.25'
-
-CanIUse.feature('border-radius').in?(user_agent_string) # => true
-```
-
-For detailed answer (see [all options here](https://github.com/Fyrd/caniuse/blob/master/CONTRIBUTING.md)):
-
-```ruby
-user_agent_string = 'Mozilla/4.0 (compatible; MSIE 6.1; Windows XP)'
-
-CanIUse.feature('canvas').in?(user_agent_string, as: :string) # => 'n'
+CanIUse.feature('border-radius').supported_in?(user_agent_string)
+CanIUse.feature('border-radius').almost_supported_in?(user_agent_string)
+CanIUse.feature('border-radius').fully_supported_in?(user_agent_string)
 ```
 
 To find out minimal version of a browser (naming matches caniuse naming: `ie`, `firefox`, `chrome`, `safari`, `opera`, `ios_saf`, `op_min`, `android`, `bb`, `op_mob`, `and_chr`, `and_ff`, `ie_mob`, `ie_mob`, `and_uc`) that fully supports certain feature:
 
 ```ruby
-CanIUse.feature('canvas').from_version_of('ie') # => 10
+CanIUse.feature('canvas').in_browser('ie').supported_in_versions # => […]
+CanIUse.feature('canvas').in_browser('ie').almost_supported_in_versions # => […]
+CanIUse.feature('canvas').in_browser('ie').fully_supported_in_versions # => []
+
+CanIuse.feature('canvas').in_browser('ie').supported_from_version # => CanIUse::BrowserVersion
+CanIuse.feature('canvas').in_browser('ie').almost_supported_from_version # => CanIUse::BrowserVersion
+CanIuse.feature('canvas').in_browser('ie').fully_from_version # => CanIUse::BrowserVersion
 ```
 
 ## Contributing
