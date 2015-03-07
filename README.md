@@ -26,7 +26,7 @@ $ gem install can_i_use
 
 ## Usage
 
-Test user agent for support of a feature. Optionally specify minimum type of support (`:almost`, `:polyfill`, `:prefix` or `:disabled`).
+Test user agent for support of a feature. Optionally specify minimal required type of support (`:almost`, `:polyfill`, `:prefix` or `:disabled`).
 
 ```ruby
 CanIUse::UserAgent.new(user_agent_string).supports?('canvas') # => true
