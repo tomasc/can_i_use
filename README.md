@@ -37,7 +37,7 @@ To find out minimal version of a browser (naming matches caniuse naming: `ie`, `
 ```ruby
 CanIUse.feature('canvas').in_browser('ie').supported_in_versions # => […]
 CanIUse.feature('canvas').in_browser('ie').almost_supported_in_versions # => […]
-CanIUse.feature('canvas').in_browser('ie').fully_supported_in_versions # => []
+CanIUse.feature('canvas').in_browser('ie').fully_supported_in_versions # => […]
 
 CanIuse.feature('canvas').in_browser('ie').supported_from_version # => CanIUse::BrowserVersion
 CanIuse.feature('canvas').in_browser('ie').almost_supported_from_version # => CanIUse::BrowserVersion
