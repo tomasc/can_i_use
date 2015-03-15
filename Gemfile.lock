@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    can_i_use (0.0.1)
+    can_i_use (0.0.2)
       user_agent_parser
 
 GEM
