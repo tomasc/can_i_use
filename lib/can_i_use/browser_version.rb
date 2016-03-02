@@ -1,50 +1,49 @@
 class CanIUse
   class BrowserVersion
-
     attr_accessor :version_string
     attr_accessor :support_string
 
     # =====================================================================
-      
-    def initialize version_string, support_string
+
+    def initialize(version_string, support_string)
       @version_string = version_string
       @support_string = support_string
     end
 
     # ---------------------------------------------------------------------
-      
-    def <=> other
+
+    def <=>(other)
       Gem::Version.new(to_s.dup) <=> Gem::Version.new(other.to_s.dup)
     end
 
-    def > other
+    def >(other)
       Gem::Version.new(to_s.dup) > Gem::Version.new(other.to_s.dup)
     end
 
-    def >= other
+    def >=(other)
       Gem::Version.new(to_s.dup) >= Gem::Version.new(other.to_s.dup)
     end
 
-    def < other
+    def <(other)
       Gem::Version.new(to_s.dup) < Gem::Version.new(other.to_s.dup)
     end
 
-    def <= other
+    def <=(other)
       Gem::Version.new(to_s.dup) <= Gem::Version.new(other.to_s.dup)
     end
 
-    def == other
+    def ==(other)
       Gem::Version.new(to_s.dup) == Gem::Version.new(other.to_s.dup)
     end
 
     # ---------------------------------------------------------------------
-      
+
     def to_s
       @version_string
     end
 
     # ---------------------------------------------------------------------
-      
+
     # y - (Y)es, supported by default
     # a - (A)lmost supported (aka Partial support)
     # n - (N)o support, or disabled by default
@@ -66,6 +65,5 @@ class CanIUse
       when support_string =~ /d/i then :disabled
       end
     end
-
   end
 end

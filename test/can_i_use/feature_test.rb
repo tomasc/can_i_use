@@ -2,7 +2,6 @@ require 'test_helper'
 
 class CanIUse
   describe Feature do
-
     describe 'WOFF' do
       let(:feature) { CanIUse::Feature.new('woff') }
 
@@ -20,6 +19,5 @@ class CanIUse
         end
       end
     end
-
   end
 end
