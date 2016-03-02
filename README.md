@@ -33,10 +33,10 @@ CanIUse::UserAgent.new(user_agent_string).supports?('canvas') # => true
 CanIUse::UserAgent.new(user_agent_string).supports?('canvas', :polyfill) # => true
 ```
 
-The [caniuse](http://www.caniuse.com) data are included as a submodule from the [official GitHub repo](https://github.com/fyrd/caniuse). This means this gem needs to be regularly updated in order to reflect the latest features and their implementation in browsers. Pull requests are welcome.
+The [caniuse](http://www.caniuse.com) data are included as a submodule from the [official GitHub repo](https://github.com/fyrd/caniuse). This means this gem needs to be regularly updated in order to reflect the latest features and their implementation in browsers by running (for example) `git submodule foreach git pull origin master`. Pull requests are welcome.
 
 ```ruby
-CanIUse.updated_at # => 2015-03-01 05:59:31 UTC
+CanIUse.updated_at # => 2016-02-29 07:20:20 UTC
 ```
 
 ## Contributing
